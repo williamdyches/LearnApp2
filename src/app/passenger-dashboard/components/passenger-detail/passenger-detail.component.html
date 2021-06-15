@@ -1,0 +1,25 @@
+<div>
+    <ul>
+        <li>
+            <span 
+            class = "status"
+            [class.checked-in]="detail.checkedIn"></span>
+            <div>
+                {{ detail.fullname }}
+            </div>
+            <input *ngIf="onEdit" #name [value]="detail.fullname" (input)="changeName(name.value)"/>
+           
+           
+            <div class = "date">
+                Check in date: 
+                {{ detail.checkInDate ? (detail.checkInDate | date: "y MMMM d"): 'Not checked in' }}
+            </div>
+            <div class="children">
+                Children: {{ detail.children?.length || 0 }}
+            </div>
+            <button (click)="changeEdit()">{{ onEdit ? 'Done' : 'Edit' }}</button>
+            <button *ngIf="onEdit" (click)="onRemove()">Remove</button>
+        </li>
+
+    </ul>
+</div>
