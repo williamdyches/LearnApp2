@@ -12,20 +12,17 @@ import { Passenger } from "../models/passenger.interface";
 
 export class PassengerDashboardComponent implements OnInit{
 
-    passengers: Passenger[] = [{
-        id: -1,
-        fullname: 'n/a',
-        checkedIn: false,
-        checkInDate: null,
-        children: null
-    }];
+    passengers$ = this.passengerService.getPassengers();  // Read up on "Async pipes" (See template changes) You want the template to handle observables as much as possible.  They end the subscriptions when its done with them --- no memory leaks
+
+    
     constructor(private passengerService: PassengerDashboardService){
-        this.passengerService.getPassengers()
-            .subscribe(data => this.passengers = data);
+        
     }
 
     handleRemove(event: any){
-        this.passengers = this.passengers.filter((passenger) => passenger.id !== event.id);
+        // this.passengers = this.passengers.filter((passenger) => passenger.id !== event.id);
+        // this should just emit an event to parent component and let the parent component do the 'removal'
+        
     }
 
     ngOnInit(){}
