@@ -3,7 +3,7 @@ import { Passenger } from './containers/models/passenger.interface';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 
-const PASSENGER_API: string = '/assets/db.json';
+const PASSENGER_API: string = 'assets/db.json';
 
 @Injectable()
 export class PassengerDashboardService {

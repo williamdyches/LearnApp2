@@ -1,12 +1,14 @@
 <div>
     <passenger-count 
-    [items]="passengers">
+    [items]="passengers$ | async">
     </passenger-count>
 
-    <passenger-detail 
-    *ngFor="let passenger of passengers"
-    [detail]="passenger"
-    (remove)="handleRemove($event)"
-    ></passenger-detail>
+    <div *ngFor="let passenger of passengers$ | async">
+        <passenger-detail 
+            [detail]="passenger"
+            (remove)="handleRemove($event)"
+        ></passenger-detail>
+    </div>
+    
 
 </div>

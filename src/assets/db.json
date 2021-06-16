@@ -1,5 +1,4 @@
-{
-"passengers": [{
+    [{
         "id": 1,
         "fullname": "Stephen",
         "checkedIn": true,
@@ -18,5 +17,3 @@
         "checkInDate": 1470742000000,
         "children": null
     }]
-
-}

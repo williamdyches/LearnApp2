@@ -1,5 +1,6 @@
 import { Passenger } from './../../containers/models/passenger.interface';
 import { Component, Input } from "@angular/core";
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -10,18 +11,20 @@ import { Component, Input } from "@angular/core";
 
 export class PassengerCountComponent {
     @Input()
-    items: Passenger[] = [{
-        id: -1,
-        fullname: 'n/a',
-        checkedIn: false,
-        checkInDate: null,
-        children: null
-    }];
+    items: any;
+    // items: Passenger[] = [{
+    //     id: -1,
+    //     fullname: 'n/a',
+    //     checkedIn: false,
+    //     checkInDate: null,
+    //     children: null
+    // }];
 
     constructor(){}
-    CheckedInCount(){
+
+    CheckedInCount() {
         if (!this.items) return;
-        return this.items.filter((value) => value.checkedIn).length;
+        return this.items.filter((value: any) => value.checkedIn);
     }
 
 }
